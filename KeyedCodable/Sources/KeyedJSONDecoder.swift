@@ -28,19 +28,10 @@ open class KeyedJSONDecoder: JSONDecoder {
 
 extension Decodable {
 
-    public static var keyed: Keyed<Self>.Type { return Keyed.self }
-
-    @available(*, deprecated, message: "Use DecodableType.keyed.fromJSON() instead. Replace all occurences of '(fromJSON: ' with '.keyed.fromJSON('.")
-    public init(fromJSON data: Data, decoder: KeyedJSONDecoder = KeyedConfig.default.defaultJSONDecoder()) throws {
-
-        self = try Self.keyed.fromJSON(data, decoder: decoder)
+    public static var keyed: Keyed<Self>.Type {
+        return Keyed.self
     }
 
-    @available(*, deprecated, message: "Use DecodableType.keyed.fromJSON() instead. Replace all occurences of '(fromJSON: ' with '.keyed.fromJSON('.")
-    public init(fromJSON string: String, encoding: String.Encoding = .utf8, decoder: KeyedJSONDecoder = KeyedConfig.default.defaultJSONDecoder()) throws {
-
-        self = try Self.keyed.fromJSON(string, encoding: encoding, decoder: decoder)
-    }
 }
 
 extension Keyed where Base: Decodable {

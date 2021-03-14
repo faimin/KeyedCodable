@@ -106,9 +106,6 @@ extension Flat: Nullable {
 
 public struct Keyed<Base> {
 
-    @available(*, deprecated, renamed: "Base")
-    typealias Value = Base
-
     public let value: Base
 
     public init(_ value: Base) {
